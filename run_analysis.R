@@ -1,3 +1,6 @@
+#unzip datafile
+unzip("getdata-projectfiles-UCI HAR Dataset.zip")
+
 ##Load raw data
 traindata <- read.table("./UCI HAR Dataset/train/X_train.txt", header=FALSE)
 testdata <- read.table("./UCI HAR Dataset/test/X_test.txt", header=FALSE)
@@ -38,4 +41,4 @@ library(reshape2)
 melten <- melt(tidyset1, id.vars = c("subject","activity"), na.rm=TRUE)
 tidyset2 <- data.frame()
 tidyset2 <- dcast(melten, subject + activity ~ variable, mean)
-write.table(tidyset2, "tidyset.txt")
+write.table(tidyset2, "tidy set.txt")
